@@ -1,0 +1,9 @@
+{
+  "name": "OdaCamera Pro",
+  "description": "A web-based camera application featuring photo capture, video recording, and simulated smart zoom.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": []
+}

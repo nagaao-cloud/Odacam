@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=SF+Pro+Display:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "SF Pro Display", -apple-system, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.camera-glass {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hardware-button {
+  background: rgba(26, 26, 26, 0.85);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 9999px;
+  color: #fff;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hardware-button:active {
+  background: rgba(15, 15, 15, 0.9);
+  transform: scale(0.92);
+}
+
+.hardware-button.active {
+  color: #ccff00;
+  border-color: #ccff00;
+}
+
+.zoom-slider {
+  -webkit-appearance: none;
+  background: transparent;
+  width: 160px;
+  height: 2px;
+  border-radius: 1px;
+  outline: none;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.zoom-slider-container {
+  width: 44px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.zoom-slider-container::before {
+  content: "+";
+  position: absolute;
+  top: -10px;
+  color: rgba(255,255,255,0.7);
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.zoom-slider-container::after {
+  content: "−";
+  position: absolute;
+  bottom: -10px;
+  color: rgba(255,255,255,0.7);
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/* Dots along the slider */
+.zoom-slider-container .dots {
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.zoom-slider-container .dots span {
+  width: 3px;
+  height: 3px;
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 50%;
+}
+
+.zoom-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 20px; /* larger tap target */
+  background: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.zoom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: -16px; /* align with track */
+}
+
+.custom-zoom-thumb {
+  position: absolute;
+  pointer-events: none; /* Let the input handle clicks */
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccff00;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+}
